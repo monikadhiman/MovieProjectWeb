@@ -1,0 +1,48 @@
+<ng-template #noproduct>
+  <h2>No Product to Display</h2>
+</ng-template>
+
+<div class="container" *ngIf="product;else noproduct">
+  <div class="card">
+    <div class="row">
+      <aside class="col-sm-5 border-right">
+        <article class="gallery-wrap">
+          <div class="img-big-wrap">
+            <div> <a href="#"><img [src]="product.imageUrl" /></a></div>
+          </div> <!-- slider-product.// -->
+          <div class="img-small-wrap">
+            <div class="item-gallery"> <img [src]="product.imageUrl" /> </div>
+            <div class="item-gallery"> <img [src]="product.imageUrl" /> </div>
+            <div class="item-gallery"> <img [src]="product.imageUrl" /> </div>
+            <div class="item-gallery"> <img [src]="product.imageUrl" /> </div>
+          </div> <!-- slider-nav.// -->
+        </article> <!-- gallery-wrap .end// -->
+      </aside>
+      <aside class="col-sm-7">
+        <article class="card-body p-5">
+          <h3 class="title mb-3">{{product.name | uppercase}}</h3>
+          <h4 class="title mb-3">{{product.language}}</h4>
+          <p class="price-detail-wrap">
+            <span class="price h3 text-warning">
+              <span
+                class="num">{{product.price | currency:'INR':'symbol-narrow'}}</span>
+            </span>
+
+          </p> <!-- price-detail-wrap .// -->
+
+          <dl class="item-property">
+            <dt class="text-uppercase text-primary"><u>Description</u></dt>
+            <dd>
+              <p>
+                {{product.description}}
+              </p>
+            </dd>
+          </dl>
+          <hr>
+
+           <a [routerLink]='["/login"]' class="btn btn-lg btn-primary text-uppercase"> Buy now </a>
+         </article> <!-- card-body.// -->
+      </aside> <!-- col.// -->
+    </div> <!-- row.// -->
+  </div> <!-- card.// -->
+</div>
